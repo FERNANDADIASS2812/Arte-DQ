@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As Rainhas da Performance — Cultura Drag na Zona Oeste</title>
+    <style>
+        /* --- Configurações Globais (Minimalismo Absoluto NYT) --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', Cambria, Times, serif;
+            background-color: #ffffff;
+            color: #111111;
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Barra de Navegação Superior --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000000;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #666666;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #000000;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: #f0f0f0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right,
+                #e40303 0%, #e40303 16.6%,
+                #ff8c00 16.6%, #ff8c00 33.3%,
+                #ffee07 33.3%, #ffed00 50%,
+                #008026 50%, #008f2b 66.6%,
+                #1043bb 66.6%, #004cff 83.3%,
+                hsl(290, 81%, 17%) 83.3%, #732982 100%
+            );
+            transition: width 0.1s ease;
+        }
+
+        /* --- Seções de Abertura de Capítulos --- */
+        .immersive-header {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            background-attachment: fixed;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 60px;
+            box-sizing: border-box;
+        }
+
+        .immersive-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 100%);
+            z-index: 1;
+        }
+
+        .immersive-title-block {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            color: #ffffff;
+            padding-bottom: 40px;
+        }
+
+        .immersive-title-block .tag {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #dddddd;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .immersive-title-block h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3.4rem;
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .chapter-heading {
+            font-family: 'Georgia', serif;
+            font-size: 2.3rem;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #111111;
+            letter-spacing: -1px;
+            margin: 0 auto;
+        }
+
+        #hero-main {
+            background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/imagemdecapa.jpeg');
+        }
+     
+        /* --- Fluxo do Texto Narrativo --- */
+        .narrative-container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 10px 20px 20px 20px;
+        }
+
+        .narrative-container-main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 90px 20px 20px 20px;
+        }
+
+        .narrative-container p, .narrative-container-main p {
+            font-size: 1.15rem;
+            color: #111111;
+            margin-bottom: 32px;
+        }
+
+        .narrative-container-main p.intro-text::first-letter {
+            font-size: 4.5rem;
+            float: left;
+            margin-top: 8px;
+            margin-right: 12px;
+            line-height: 0.85;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* --- Scrollytelling Split-Screen --- */
+        .scrolly-container {
+            position: relative;
+            width: 100vw;
+            display: flex;
+            background-color: #fcfcfc;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .scrolly-visual {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 50vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background-color: #fafafa;
+            transition: background-color 0.6s ease;
+            z-index: 1;
+        }
+
+        .chart-card {
+            width: 100%;
+            max-width: 520px;
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            padding: 40px;
+            transition: transform 0.4s ease;
+        }
+
+        .chart-main-title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #111111;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-main-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 14px;
+            background: #e40303;
+        }
+
+        .chart-display-area {
+            position: relative;
+            min-height: 160px;
+        }
+
+        .chart-view-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        }
+
+        .chart-view-panel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            position: relative;
+        }
+
+        .chart-metric-row {
+            margin-bottom: 25px;
+        }
+
+        .chart-metric-info {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #444444;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .chart-metric-info .year-label {
+            font-size: 1rem;
+            color: #111111;
+        }
+
+        .chart-metric-info .value-label {
+            font-size: 1.1rem;
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .chart-track {
+            background: #f0f0f0;
+            height: 14px;
+            width: 100%;
+            position: relative;
+        }
+
+        .chart-fill {
+            height: 100%;
+            background: #222222;
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+        }
+
+        .highlight-bar {
+            background: #db2777;
+        }
+
+        .brand-list {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #eaeaea;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.85rem;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .brand-list strong {
+            color: #111111;
+        }
+
+        .chart-footer-caption {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.75rem;
+            color: #888888;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.4;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .scrolly-text-side {
+            width: 50vw;
+            padding-right: 5%;
+        }
+
+        .scrolly-paragraph-block {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+            opacity: 0.2;
+            transition: opacity 0.5s ease;
+        }
+
+        .scrolly-paragraph-block.active {
+            opacity: 1;
+        }
+
+        .scrolly-paragraph-block p {
+            font-family: 'Georgia', serif;
+            font-size: 1.35rem;
+            color: #111111;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* --- Galeria Retangular Menor --- */
+        .immersive-gallery-viewport {
+            position: sticky;
+            max-width: 820px;
+            width: calc(100% - 40px);
+            height: 480px;
+            background: #000000;
+            overflow: hidden;
+            margin: 40px auto 20px auto;
+            border: 1px solid #eaeaea;
+        }
+
+        .gallery-slides-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .gallery-slide::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
+            z-index: 1;
+        }
+
+        .gallery-slide-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            color: #ffffff;
+            z-index: 2;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .gallery-slide-caption strong {
+            color: #ffed00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.75rem;
+        }
+
+        .gallery-nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .gallery-nav-arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .arrow-left { left: 15px; }
+        .arrow-right { right: 15px; }
+
+        .gallery-bullet-indicators {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .gallery-dot {
+            width: 7px;
+            height: 7px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .gallery-dot.active {
+            background: #ffffff;
+            transform: scale(1.2);
+        }
+
+        /* --- Espaço de Vídeo Espelhado da Galeria --- */
+        .editorial-video-container {
+            max-width: 820px;
+            width: 100%;
+            height: 480px;
+            background: #000000;
+            margin: 30px auto;
+            border: 1px solid #eaeaea;
+            overflow: hidden;
+        }
+
+        .editorial-video-container video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover;
+        }
+
+        /* --- Olho de Texto Sóbrio --- */
+        .pullquote-nyt {
+            font-family: 'Georgia', serif;
+            font-size: 1.7rem;
+            line-height: 1.2;
+            color: #000000;
+            text-align: center;
+            margin: 60px 0;
+            padding: 25px 20px;
+            border-top: 1px solid #cccccc;
+            border-bottom: 1px solid #cccccc;
+            font-style: italic;
+        }
+
+        .pullquote-author {
+            display: block;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            color: #555555;
+        }
+
+        /* Estilos do Acordeão de Capítulos */
+        .accordion-section {
+            border-top: 1px solid #eaeaea;
+            margin-bottom: 10px;
+        }
+
+        .accordion-trigger {
+            width: 90%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none;
+            position: relative;
+        }
+
+        .accordion-trigger:hover .chapter-heading {
+            color: #555555;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .accordion-section.active .accordion-content {
+            max-height: 5000px;
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background: #ffffff;
+            color: #777777;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 90px 20px;
+            letter-spacing: 1px;
+            border-top: 1px solid #eaeaea;
+        }
+
+        @media (max-width: 1024px) {
+            .scrolly-container { flex-direction: column; }
+            .scrolly-visual {
+                width: 100vw;
+                height: 50vh;
+                position: sticky;
+                top: 60px;
+                padding: 20px;
+                background-color: #fafafa !important;
+            }
+            .chart-card { padding: 20px; max-width: 90%; }
+            .scrolly-text-side { width: 100vw; padding: 0 20px; }
+            .scrolly-paragraph-block { min-height: 60vh; padding: 40px 0; }
+            .immersive-title-block h1 { font-size: 2.2rem; }
+            .chapter-heading { font-size: 1.8rem; }
+            .nav-menu { display: none; }
+            .immersive-gallery-viewport, .editorial-video-container { height: 320px; width: calc(100% - 30px); }
+            .gallery-slide-caption { bottom: 25px; font-size: 0.8rem; }
+        }
+
+  .imagem-responsiva {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Centraliza e dá um espaço em cima e embaixo */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+</style>
+ 
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="nav-logo">As rainhas da performance</div>
+            <ul class="nav-menu">
+                <li><a href="#hero-main">Início</a></li>
+                <li><a href="#hero-cap1"> A Zona Oeste</a></li>
+                <li><a href="#hero-cap2">As Drags</a></li>
+                <li><a href="#hero-cap3">Just be a Queen</a></li>
+            </ul>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="readingProgress"></div>
+        </div>
+    </header>
+
+    <section class="immersive-header" id="hero-main">
+        <div class="immersive-title-block">
+            <h1>As rainhas da performance: a cultura Drag na Zona Oeste do Rio de Janeiro</h1>
+        </div>
+    </section>
+
+    <main class="narrative-container-main">
+        <p class="intro-text"> Ao redor do mundo, em 28 de junho, é comemorado o dia do orgulho LGBTQIAPN+, uma data que representa a luta por direitos e igualdade para pessoas lésbicas, gays, bissexuais, transexuais e as demais identidades que a sigla engloba. Das ruas às campanhas publicitárias, a atenção da sociedade está voltada para a comunidade durante esse mês. Neste momento, o Brasil celebra um dos maiores eventos do mundo voltado ao movimento: a Parada do Orgulho LGBT+ de São Paulo. Neste ano, o ato político e cultural completa o seu 30º aniversário de representatividade e combate para a população <i>queer</i>, entretanto, apresentou uma queda significativa de patrocínios, atrações e movimentação econômica na capital paulista. </p>
+
+
+    </main>
+
+    <div class="scrolly-container">
+        
+        <div class="scrolly-visual" id="scrolly-bg-target">
+            <div class="chart-card">
+                <div class="chart-main-title" id="live-chart-title">Declínio de Patrocínios Oficiais</div>
+                
+                <div class="chart-display-area">
+                    
+                    <div id="panel-step1" class="chart-view-panel active">
+                        <div class="chart-metric-row">
+                            <div class="chart-metric-info">
+                                <span class="year-label">2024</span>
+                                <span class="value-label">12 Marcas</span>
+                            </div>
+                            <div class="chart-track"><div class="chart-fill" data-pct="100%"></div></div>
+                        </div>
+                        <div class="chart-metric-row">
+                            <div class="chart-metric-info">
+                                <span class="year-label">2026</span>
+                                <span class="value-label">3 Marcas</span>
+                            </div>
+                            <div class="chart-track"><div class="chart-fill highlight-bar" data-pct="25%"></div></div>
+                        </div>
+                    </div>
+
+                    <div id="panel-step2" class="chart-view-panel">
+                        <div class="chart-metric-row">
+                            <div class="chart-metric-info">
+                                <span class="year-label">Total de Perdas</span>
+                                <span class="value-label">-9 Empresas</span>
+                            </div>
+                            <div class="chart-track"><div class="chart-fill" data-pct="75%" style="background: #e40303;"></div></div>
+                        </div>
+                        <div class="brand-list">
+                            <strong>Marcas Resistentes em 2026:</strong>
+                            <br>• Amstel — Patrocinadora Oficial
+                            <br>• Grupo L’Oréal — Copatrocinador
+                            <br>• Philip Morris Brasil — Apoiadora
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="chart-footer-caption">
+                    Dados oficiais fornecidos e auditados pela Associação da Parada do Orgulho LGBT de São Paulo (APOLGBT-SP).
+                </div>
+            </div>
+        </div>
+
+        <div class="scrolly-text-side">
+            
+            <div class="scrolly-paragraph-block active" data-target="step1">
+                <p>De 2024 para 2026, o maior evento de orgulho <i>queer</i> do país sofreu um recuo severo no suporte institutional. A festividade reduziu seu portfólio de investimentos drasticamente, caindo de <strong>12 patrocinadores oficiais para apenas três empresas parceiras</strong>.</p>
+            </div>
+
+            <div class="scrolly-paragraph-block" data-target="step2">
+                <p>O impacto financeiro resultou na saída de 9 apoiadores de grande porte. A sobrevivência estrutural da marcha em 2026 passou a depender unicamente da verba direcionada pela <strong>Amstel</strong> (como patrocinadora oficial), pelo <strong>Grupo L’Oréal</strong> (atuando na copatrocinia) and pela <strong>Philip Morris Brasil</strong> (como apoiadora do projeto).</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <main class="narrative-container">
+        <p> Os desafios enfrentados pela Parada do Orgulho de 2026 refletem a forma que o cenário nacional lida com as questões de sexualidade e identidade de gênero. Apesar do Brasil ser pioneiro na América Latina na garantia de direitos civis para a comunidade LGBT+, como o casamento homoafetivo e a criminalização da LGBTfobia, nosso país continua liderando o ranking mundial de mortes contra a população, segundo o <a href="https://agenciabrasil.ebc.com.br/radioagencia-nacional/direitos-humanos/audio/2026-01/brasil-lidera-ranking-mundial-de-mortes-lgbt"target="_blank" rel="noopener noreferrer">relatório anual do Grupo Gay da Bahia.</a>
+        <p> Mesmo com os avanços conquistados pela comunidade nas últimas décadas, o acesso à proteção, cultura e espaços de convivência ainda é desigual no território brasileiro, especialmente em regiões afastadas dos grandes centros urbanos. É a partir dessa lacuna que surgem diversos tipos de manifestações artísticas nas periferias da cidade. O Doutor e Mestre em Comunicação pela Universidade Federal do Rio Grande do Sul (UFRGS) e especialista em estudos <em>queer</em>, Douglas Ostruca, diz que a arte nasceu para transformar as discriminações vividas pela comunidade. 
+ </p>
+       
+        <blockquote class="pullquote-nyt">
+            “Recebemos ataques e violências a partir da hegemonia, e a arte, ela é um lugar que nos permite ressignificar essas violências, essas dores, transformar isso em arte, em potência, para poder dar uma resposta, e ao mesmo tempo para poder processar tudo isso que nos chega."
+            <span class="pullquote-author">— Douglas Ostruca</span>
+        </blockquote>
+
+        <p>Dentre as contraculturas advindas da luta LGBTQIA+, a arte drag ganhou seu espaço próprio. Misturando performance, moda, humor e crítica social, o movimento transforma o corpo em palco de expressão política e cultural. Em regiões periféricas, onde a presença de artes e espaços de convivência da cena é limitada, a drag vira sinônimo de construção de comunidade e pertencimento. 
+ </p>
+
+        <p>E é na Zona Oeste do Rio de Janeiro, região frequentemente isolada dos circuitos culturais e da vida noturna voltada à população LGBTQIA+ presente no centro da cidade, que a arte drag encontra espaço para florescer. 
+ </p>
+    
+    </main>
+
+    <div class="immersive-gallery-viewport">
+        
+        <button class="gallery-nav-arrow arrow-left" onclick="navigateGallery(-1)">&#10094;</button>
+        <button class="gallery-nav-arrow arrow-right" onclick="navigateGallery(1)">&#10095;</button>
+        
+        <div class="gallery-slides-container" id="gallerySlider">
+            
+            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto1.jpg');">
+                <div class="gallery-slide-caption">
+                    <strong>Créditos: Arquivo Pessoal</strong>
+                </div>
+            </div>
+
+            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto2.jpg');">
+                <div class="gallery-slide-caption">
+                    <strong>Créditos: Rita Martins</strong>
+                </div>
+            </div>
+
+            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto3.jpg');">
+                <div class="gallery-slide-caption">
+                    <strong>Créditos: Reprodução/Instagram</strong>
+                </div>
+            </div>
+
+            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto4.jpg');">
+                <div class="gallery-slide-caption">
+                    <strong>Créditos: Arquivo Pessoal</strong>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="gallery-bullet-indicators">
+            <button class="gallery-dot active" onclick="jumpToSlide(0)"></button>
+            <button class="gallery-dot" onclick="jumpToSlide(1)"></button>
+            <button class="gallery-dot" onclick="jumpToSlide(2)"></button>
+            <button class="gallery-dot" onclick="jumpToSlide(3)"></button>
+            
+        </div>
+    </div>
+
+    <div class="narrative-container" style="padding-top: 0; margin-bottom: 40px;">
+        <p style="font-size: 1.1rem; color: #555555; font-style: italic; line-height: 1.6; text-align: center; max-width: 780px; margin: 0 auto;">
+            A arte Drag abriga um leque de possibilidades que se desdobram em múltiplos jeitos de ser, desde drag queens, a drag kings e queers, os quais personificam os estereótipos femininos, masculinos e brincam com a androginia, respectivamente.
+        </p>
+    </div>
+
+    <div class="narrative-container" id="hero-cap1">
+        <div class="accordion-section">
+            <button class="accordion-trigger" onclick="toggleNytAccordion(this)">
+                <h2 class="chapter-heading">Zona Oeste is Burning</h2>
+            </button>
+            <div class="accordion-content">
+                <main id="cap1" style="padding-top: 20px;">
+                    <p>Em Campo Grande, bairro mais populoso do Brasil com cerca de 350 mil habitantes, <i>performers</i> usam de suas maquiagens e figurinos para ultrapassar as barreiras territoriais. Para uma drag queen da Zona Oeste, apresentar-se no Centro do Rio significa atravessar uma cidade inteira. Os cerca de 50 quilômetros que separam Campo Grande da região central ajudam a ilustrar por que tantos artistas locais defendem a criação de espaços culturais em seus próprios territórios. O bairro criou a sua própria cena LGBT+, com casas noturnas e eventos voltados à comunidade há pelo menos duas décadas. O Espaço Fênix, que foi uma das únicas boates LGBTQIAPN+ da região por quase 10 anos, é um desses poucos locais que funcionam como um ponto de encontro e reprodução de representatividade para a comunidade. </p>
+                    
+                    <p>Raquel Carvalho, idealizadora da Casa Noturna, notou a ausência de espaços para LGBTs em Campo Grande em uma época de pouca visibilidade  <i>queer</i>. Para ela, o espaço atuou como um lugar de liberdade para quem, muitas vezes, precisou esconder quem realmente era. 
+</p>
+            
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BUXmTz7eNOg?si=xTbXo7OsjHBRJxFV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+             <p>Além de representatividade, a boate funcionou como uma importante fomentadora de carreiras de drag queens locais, com descoberta de novos talentos, apresentações recorrentes, emprego como <I>hostess</I> e, principalmente, fonte significativa de renda para essas artistas. Raquel Carvalho explica que o espaço foi um local para as drags criarem um nome na cena. </p>
+                   
+             <br>
+                    
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/Zwoecu8AHIM?si=9MeLlssvkJKm2kZH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  
+                    <p>Por motivos financeiros, a boate não funciona mais em um local fixo, mas continua a produzir eventos regulares para o público LGBT+. Esse espaço de resistência, assim como outros da Zona Oeste, transformou trajetórias de diversas drags, principalmente no aperfeiçoamento da arte e no processo de aceitação do gênero e da sexualidade. Alice Portilla, drag queen residente do Espaço Fênix, diz que a casa expandiu as oportunidades para a sua arte, entretanto a mantinha em sua zona de conforto.   </p>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <audio controls style="width: 100%; max-width: 500px;">
+                            <source src="c:\Users\ferna\OneDrive\Imagens\TRABALHO RITA\ÁUDIOS\ÁUDIO 1.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+
+                    <p> Caio Sancha é quem dá vida a Alice desde 2013. O jovem descobriu no universo drag um espaço de expressão, a partir do amor que sentia por histórias de princesas e sereias. </p>
+                    
+                    <div class="immersive-gallery-viewport">
+                        <button class="gallery-nav-arrow arrow-left" onclick="navigateGallery2(-1)">&#10094;</button>
+                        <button class="gallery-nav-arrow arrow-right" onclick="navigateGallery2(1)">&#10095;</button>
+                        
+                        <div class="gallery-slides-container" id="gallerySlider2">
+                            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto5.jpg'); background-size: contain; background-color: #1a1a1a;">
+                                <div class="gallery-slide-caption">
+                                    <strong>Créditos: Reprodução/Instagram</strong>
+                                </div>
+                            </div>
+                            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto6.PNG'); background-size: contain; background-color: #1a1a1a;">
+                                <div class="gallery-slide-caption">
+                                    <strong>Créditos: Reprodução/Instagram</strong>
+                                </div>
+                            </div>
+                            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto7.PNG'); background-size: contain; background-color: #1a1a1a;">
+                                <div class="gallery-slide-caption">
+                                    <strong>Créditos: Reprodução/Instagram</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-bullet-indicators">
+                            <button class="gallery-dot gallery-dot2 active" onclick="jumpToSlide2(0)"></button>
+                            <button class="gallery-dot gallery-dot2" onclick="jumpToSlide2(1)"></button>
+                            <button class="gallery-dot gallery-dot2" onclick="jumpToSlide2(2)"></button>
+                        </div>
+                    </div>
+                     
+                    <div class="narrative-container" style="padding-top: 0; margin-bottom: 40px;">
+                        <p style="font-size: 1.1rem; color: #555555; font-style: italic; line-height: 1.6; text-align: center; max-width: 780px; margin: 0 auto;">
+                        Caio deu o nome “Alice” para a sua drag depois de se fantasiar como a personagem de mesmo nome do desenho “Alice no país das maravilhas”. </p>
+                    </div>
+
+                
+
+                    <p> Mesmo após assumir a sua expression artística, Caio sentiu na pele as dificuldades de ser artist em uma periferia onde as ações do poder público não chegam ao local. — <strong> “É desgastante a gente sair daqui todo mês pro centro, levando um monte de aparato. Não tem como ir montada numa condução, é estranho, é difícil. Então, tem que pegar um Uber, e o cachê precisa pagar a minha ida e volta, né? Às vezes não paga, então é complicado. —</strong> explica ao falar sobre se transportar para outras zones da cidade para expor a sua arte. O deslocamento dos artistas das periferias para as áreas mais nobres da cidade não é algo incomum, ele se dá, principalmente pela falta de verbas do Governo para fomentar a cultura nesses locais, e a consequência disso é a menor quantidade de espaços para produzir essas expressões. —  <strong> É mais fácil de ser liberado a arte para a Zona Sul do que aqui na Zona Oeste. Não é por não ter lugar, nós temos espaços aqui, temos areninhas, teatros, escolas que podem ceder ginásios e praças públicas belíssimas. O que nós não temos é verba, o que nós não temos é dinheiro. </strong>  — ressalta a artista trans e produtora cultural de Bangu, Alessandra Salazary. Ela também destaca que, embora artistas drag busquem ampliar sua atuação e ocupar novos territórios, é fundamental que também existam espaços para a arte nas regiões onde vivem e produzem. — <strong> Eu quero ocupar outros espaços, mas eu gostaria que onde eu vivo tivessem locais que eu conseguisse levar a minha arte and mostrar o meu talento, da mesma forma que eu saio daqui, pego um ônibus e fico uma hora e vinte no trânsito para me apresentar no centro. </strong> — concluí. Esses espaços funcionam como pontos de acolhimento e expressão para artistas que encontram neles a oportunidade de compartilhar suas vivências e produções artísticas. </p>
+                    <p> A realidade descrita por Alessandra é confirmada pelos números. Segundo a pesquisa <a href="https://culturanascapitais.com.br/wp-content/uploads/2025/02/Capitais-%E2%80%94-Rio-de-Janeiro.pdf"target="_blank" rel="noopener noreferrer">Cultura das Capitais</a>, moradores da Zona Oeste estão entre os que menos acessam atividades culturais no Rio de Janeiro. O estudo indica que bairros como Campo Grande, Guaratiba e Santa Cruz figuram entre as áreas da cidade com os menores índices de participação cultural, em contraste com regiões como Centro e Zona Sul.  </p>
+                    <p> Diante dessa realidade, Alessandra identificou a necessidade de criar onde vive, um espaço voltado à valorização da cena drag local. Foi assim que surgiu o Festival Drag ZO, o primeiro festival drag da região. A iniciativa reuniu 20 artistas drag da Zona Oeste e de outras periferias da cidade, que tiveram a oportunidade de apresentar seus trabalhos, trocar experiências e aprimorar suas performances por meio do contato com outros artistas.</p>
+                        
+                    <img src="file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto8.png" alt="Festival Drag ZO" style="width: 100%; height: 100%; object-fit: cover;">
+                    
+                    <div class="narrative-container" style="padding-top: 0; margin-bottom: 40px;">
+                        <p style="font-size: 1.1rem; color: #555555; font-style: italic; line-height: 1.6; text-align: center; max-width: 780px; margin: 0 auto;">
+                        Premiação de artistas no Festival DragZO. Créditos: Reprodução/Instagram </p>
+                    </div>
+
+                    <p> Décadas antes da criação do Festival Drag ZO ou das noites promovidas pela Fênix, comunidades LGBTQIAPN+ marginalizadas já transformavam a vida noturna em espaço de acolhimento e resistência. Essa realidade foi retratada no documentário <a href="https://www.youtube.com/watch?v=mBVBipOl76Q"target="_blank" rel="noopener noreferrer">Paris is Burning</a>, que acompanha a cena dos bailes queers de Nova York, conhecidos como ballrooms, nos anos 1980. Assim como as "houses" exibidas no filme funcionavam como redes de apoio para pessoas expulsas de casa ou afastadas de seus círculos familiares devido a questões de gênero e sexualidade, espaços construídos por artistas da Zona Oeste também cumprem um papel de pertencimento e coletividade para a comunidade local. Douglas Ostruca diz que esse movimento e a expressão drag são pautadas no mesmo princípio: a coletividade. — <strong> Eles se organizavam como famílias, como grupos, como coletivos, para poder sobrevier, e para poder sobrevivem como uma pessoa LGBTQIAPN+, para poder expressar sua arte.</strong> — destaca. </p>
+                    <p> Assim como em “Paris Is Burning”, as drag queens da Zona Oeste, que cresceram com a cena LGBT+ noturna e, ao mesmo tempo, ajudaram na construção desse movimento na periferia, conquistaram o seu espaço e fez essa região “queimar” com a ascensão e resistência de sua arte, cultura e criatividade. O movimento ballroom, drag e LGBT+, feito por pessoas historicamente excluídas, cria o seu próprio espaço de pertencimento e utilizam da arte como arma de combate à repressão.  </p>
+                    
+                    <div class="immersive-gallery-viewport">
+                        <button class="gallery-nav-arrow arrow-left" onclick="navigateGallery3(-1)">&#10094;</button>
+                        <button class="gallery-nav-arrow arrow-right" onclick="navigateGallery3(1)">&#10095;</button>
+                        
+                        <div class="gallery-slides-container" id="gallerySlider3">
+                            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto9.PNG'); background-size: contain; background-color: #1a1a1a;">
+                                <div class="gallery-slide-caption">
+                                    <strong>Créditos: Reprodução/Instagram</strong>
+                                </div>
+                            </div>
+                            <div class="gallery-slide" style="background-image: url('file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto9.PNG'); background-size: contain; background-color: #1a1a1a;">
+                                <div class="gallery-slide-caption">
+                                    <strong>Créditos: Reprodução/Instagram</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-bullet-indicators">
+                            <button class="gallery-dot gallery-dot3 active" onclick="jumpToSlide3(0)"></button>
+                            <button class="gallery-dot gallery-dot3" onclick="jumpToSlide3(1)"></button>
+                        </div>
+                    </div>
+
+                    <div class="narrative-container" style="padding-top: 0; margin-bottom: 40px;">
+                        <p style="font-size: 1.1rem; color: #555555; font-style: italic; line-height: 1.6; text-align: center; max-width: 780px; margin: 0 auto;">
+                       A drag queen Hadassa, dupla de Alice Portilla em performances e antiga residente da Fênix, em uma apresentação sobre as discriminações vividas. </p>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+ 
+
+    <div class="narrative-container" id="hero-cap2">
+        <div class="accordion-section">
+            <button class="accordion-trigger" onclick="toggleNytAccordion(this)">
+                <h2 class="chapter-heading">As rainhas das performances</h2>
+            </button>
+            <div class="accordion-content">
+                <main id="cap2" style="padding-top: 20px;">
+
+                <p> A história da arte drag se conecta com a cultura ballroom, mas suas origens remetem a períodos muito anteriores, como no teatro elisabetano inglês e na Grécia Antiga, no qual homens interpretavam papéis femininos, ou até mesmo na luta contra a escravidão, nos Estados Unidos, onde é encontrado o primeiro registro de uma pessoa a se autointitular uma drag queen.</p>
+                <p> Já no início do séc. XX termos como female impersonator, male impersonator e transformista passaram a designar artistas que performavam expressões de gênero distintas das suas. No Brasil, o transformismo ganhou espaço nos teatros de revista e casas de espetáculo ao longo desse período. De acordo com dados do Google Trends, ferramenta gratuita do Google que mostra o volume de pesquisas desde 2004, o termo “drag queen” no Brasil possui 3 grandes momentos: dezembro de 2009, junho a julho de 2017 e abril a maio de 2020. </p>
+                    
+                    <img src="file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/gráfico.png" alt="gráfico" style="width: 100%; height: 100%; object-fit: cover;">
+                
+                    <p> Esses momentos de busca por esse termo no Brasil revelam a caminhada da ascensão da expressão artística no país. Em tradução livre, as rainhas da performance, chamadas drag queens, invadiram a cena brasileira e começaram a aparecer em todos os lugares, desde bares e casas de shows até em programas de televisão, como o Drag Race Brasil e a Corrida das Blogueiras. </p>
+                    
+                     <blockquote class="pullquote-nyt">
+                        “Você bota uma drag queen, tipo a Gloria Groove, cantando pagode e invadindo um espaço que era hétero, praticamente sem nenhum LGBT. Isso não aconteceria muitos anos atrás. Então a gente vê essa invasão drag, essa invasão de cor. ”
+                        <span class="pullquote-author">— Caio Sancha</span>
+                    </blockquote>
+
+                    
+                    <p>Entretanto, o boom do universo drag não é sinônimo de maior aceitação, principalmente quando essa arte ultrapassa os conceitos binários de gênero. Para a drag queen Hadassa, mesmo artistas que alcançam grande visibilidade ainda enfrentam barreiras impostas por padrões sociais de gênero.<strong> — Mesmo que a gente tenha artistas muito famosos por ser drag, eles ainda assim só conseguem ser mais aceitos quando apresentam uma estética que passe mais pela feminilidade e que acabe indo mais pelo o que as pessoas conseguem normalizar — </strong> afirma. 
+</p>
+                    
+                    <p> A cultura Drag é uma manifestação artística com montagens e performances elaboradas em que pessoas, independente da orientação sexual, criam uma persona para si próprios e passam a interagir com a arte através dela. Douglas Ostruca é de Porto Alegre e dá vida à <i>Drag Queen</i> Luná Maldita, ele trata da arte drag como um leque de possibilidades que se desdobram em múltiplos jeitos de ser, <em>drag queens, a drag kings e queers</em> – <strong> A arte-drag é heterogênea, múltipla, que tem um potencial gigante de se multiplicar e se criar em diferentes plataformas. E nisso a gente também tem outra perspectiva sobre a drag como uma estética de si, como uma experimentação de si, como produção de subjetividade, que seria uma perspectiva micropolítica.</strong> – explica.</p>
+                    
+                    <p>Mas ser drag queen vai além da maquiagem, dos figurinos extravagantes e das performances nos palcos: a arte drag carrega dimensões políticas e sociais que utilizam o humor, a sátira e a provocação para questionar padrões de gênero e estereótipos reproduzidos na sociedade. Para muitos, ela representa um lugar de identificação e resistência para a comunidade LGBTQIAPN+. — <strong> A cultura drag, para mi, significa liberdade, sabe? É libertar tudo que a gente traz preso dentro da gente. Eu sempre fui reprimido pelos meus cai para não fazer certas coisas, agora eu faço com a minha drag. </strong> Expõe Fabrício Muller, que dá vida a drag Hadassa desde 2022 e usa de sua personagem para ser quem realmente é. — <strong>  A drag me permite chegar a lugares que eu gostaria de ter chegado, de fato, enquanto Fabrício - </strong> ressalta. </p>
+               
+                   <div class="editorial-video-container">
+                        <img src="file:///C:/Users/ferna/OneDrive/Imagens/TRABALHO RITA/FOTOS/foto11.jpeg" alt="Festival Drag ZO" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div class="narrative-container" style="padding-top: 0; margin-bottom: 40px;">
+                        <p style="font-size: 1.1rem; color: #555555; font-style: italic; line-height: 1.6; text-align: center; max-width: 780px; margin: 0 auto;">
+                       O universo drag é um campo de luta, de fonte de renda, de identidade, crítica social e política. Créditos: Juliana Bizzo </p>
+                    </div>
+            </main> 
+        </div> 
+    </div>
+</div>
+
+    <div class="narrative-container" id="hero-cap3">
+        <div class="accordion-section">
+            <button class="accordion-trigger" onclick="toggleNytAccordion(this)">
+                <h2 class="chapter-heading">Don´t be a drag, just be a queen</h2>
+            </button>
+            <div class="accordion-content">
+                <main id="cap3" style="padding-top: 20px;">
+
+               <div style="text-align: center; margin: 20px 0;">
+                       <audio controls style="width: 100%; max-width: 500px;">
+                      <source src="c:\Users\ferna\OneDrive\Imagens\TRABALHO RITA\ÁUDIOS\ÁUDIO 2.mp3" type="audio/mpeg">
+                      </audio>
+                 </div>
+
+                    <p> Em <a href="https://youtu.be/wV1FrqwZyKw?si=7IFiJ7DEZQebzNRp" target="_blank" rel="noopener noreferrer">Born This Way</a> , música lançada por Lady Gaga em 2011 e considerada até hoje um dos maiores hinos LGBTQIA+, a cantora norte-americana dá o seu recado em apoio à comunidade no verso “Don’t be a drag, just be a queen”. Em um jogo de palavras, Gaga contrapõe o termo drag, que pode assume sentidos negativos no inglês, como algo desagradável ou desanimador, à figura da queen, associada à autoestima, ao orgulho e à autenticidade. A música, que reforça a existência <i>queer</i> no próprio título, incentiva as pessoas a abandonarem as inseguranças e a assumir sua autenticidade e brilhar como uma "rainha". </p>
+                   <p>Na Zona Oeste do Rio, artistas drag transformam esse incentivo em prática cotidiana. Em meio à escassez de espaços culturais, à necessidade de deslocamento e aos desafios para permanecer na cena artística, iniciativas como a Fênix e o Festival Drag ZO expõe que a paixão pela arte drag é tão grande que as artistas buscam remanejar recursos e criar alternativas para que ela continue existindo. Ao criar espaços de encontro, formação e trabalho, elas constroem caminhos para que novas gerações possam ocupar os palcos sem precisar abandonar seus territórios. A arte drag se afirma como uma ferramenta de expressão, resistência e transformação social em uma região frequentemente afastada dos grandes circuitos culturais da cidade, mostrando que ser drag também é reivindicar espaço, visibilidade e pertencimento.</p>
+                
+            
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 — EDIÇÃO ESPECIAL DE JORNALISEMO MULTIMÍDIA</p>
+    </footer>
+
+    <script>
+        /* Controle da barra superior de leitura */
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('readingProgress').style.width = scrolled + '%';
+        });
+
+        /* Controle mecânico limpo de abre/fecha dos subtítulos */
+        function toggleNytAccordion(button) {
+            const container = button.parentElement;
+            container.classList.toggle('active');
+            
+            const content = container.querySelector('.accordion-content');
+            if (container.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = "0px";
+            }
+        }
+
+        /* Mecânica Avançada de Scrollytelling Lado a Lado */
+        const textBlocks = document.querySelectorAll('.scrolly-paragraph-block');
+        const mainTitle = document.getElementById('live-chart-title');
+        const visualSide = document.getElementById('scrolly-bg-target');
+        
+        function runScrollyEngine() {
+            let currentActiveIndex = 0;
+            
+            textBlocks.forEach((block, index) => {
+                const position = block.getBoundingClientRect();
+                if (position.top < window.innerHeight / 2 && position.bottom > window.innerHeight / 2) {
+                    currentActiveIndex = index;
+                }
+            });
+
+            textBlocks.forEach((block, index) => {
+                if (index === currentActiveIndex) {
+                    block.classList.add('active');
+                } else {
+                    block.classList.remove('active');
+                }
+            });
+
+            const currentTarget = textBlocks[currentActiveIndex].getAttribute('data-target');
+            
+            if (currentTarget === 'step1') {
+                mainTitle.innerText = "Declínio de Patrocínios Oficiais";
+                visualSide.style.backgroundColor = "#fafafa";
+                document.getElementById('panel-step1').classList.add('active');
+                document.getElementById('panel-step2').classList.remove('active');
+            } else if (currentTarget === 'step2') {
+                mainTitle.innerText = "Marcas Remanescentes";
+                visualSide.style.backgroundColor = "#f3f3f3";
+                document.getElementById('panel-step1').classList.remove('active');
+                document.getElementById('panel-step2').classList.add('active');
+            }
+
+            triggerFillAnimations();
+        }
+
+        function triggerFillAnimations() {
+            const activeFills = document.querySelectorAll('.chart-view-panel.active .chart-fill');
+            activeFills.forEach(fill => {
+                fill.style.width = fill.getAttribute('data-pct');
+            });
+            
+            const inactiveFills = document.querySelectorAll('.chart-view-panel:not(.active) .chart-fill');
+            inactiveFills.forEach(fill => {
+                fill.style.width = '0';
+            });
+        }
+
+        /* Controle Lógico do Carrossel de Fotos Retangular */
+        let currentSlideIndex = 0;
+        const totalSlides = 4;
+        const sliderContainer = document.getElementById('gallerySlider');
+        const dots = document.querySelectorAll('.gallery-dot');
+
+        function updateGalleryPosition() {
+            sliderContainer.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function navigateGallery(direction) {
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = totalSlides - 1;
+            }
+            
+            updateGalleryPosition();
+        }
+
+        function jumpToSlide(index) {
+            currentSlideIndex = index;
+            updateGalleryPosition();
+        }
+
+        /* Controle Lógico da Segunda Galeria de Fotos Adicionada */
+        let currentSlideIndex2 = 0;
+        const totalSlides2 = 3;
+        const sliderContainer2 = document.getElementById('gallerySlider2');
+        const dots2 = document.querySelectorAll('.gallery-dot2');
+
+        function updateGalleryPosition2() {
+            sliderContainer2.style.transform = `translateX(-${currentSlideIndex2 * 100}%)`;
+            
+            dots2.forEach((dot, index) => {
+                if (index === currentSlideIndex2) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function navigateGallery2(direction) {
+            currentSlideIndex2 += direction;
+            
+            if (currentSlideIndex2 >= totalSlides2) {
+                currentSlideIndex2 = 0;
+            } else if (currentSlideIndex2 < 0) {
+                currentSlideIndex2 = totalSlides2 - 1;
+            }
+            
+            updateGalleryPosition2();
+        }
+
+        function jumpToSlide2(index) {
+            currentSlideIndex2 = index;
+            updateGalleryPosition2();
+        }
+
+        /* Controle Lógico da Terceira Galeria de Fotos Adicionada */
+        let currentSlideIndex3 = 0;
+        const totalSlides3 = 2;
+        const sliderContainer3 = document.getElementById('gallerySlider3');
+        const dots3 = document.querySelectorAll('.gallery-dot3');
+
+        function updateGalleryPosition3() {
+            sliderContainer3.style.transform = `translateX(-${currentSlideIndex3 * 100}%)`;
+            
+            dots3.forEach((dot, index) => {
+                if (index === currentSlideIndex3) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function navigateGallery3(direction) {
+            currentSlideIndex3 += direction;
+            
+            if (currentSlideIndex3 >= totalSlides3) {
+                currentSlideIndex3 = 0;
+            } else if (currentSlideIndex3 < 0) {
+                currentSlideIndex3 = totalSlides3 - 1;
+            }
+            
+            updateGalleryPosition3();
+        }
+
+        function jumpToSlide3(index) {
+            currentSlideIndex3 = index;
+            updateGalleryPosition3();
+        }
+
+        window.addEventListener('scroll', runScrollyEngine);
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(triggerFillAnimations, 300);
+        });
+    </script>
+</body>
+</html>
